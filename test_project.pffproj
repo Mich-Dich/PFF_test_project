@@ -1,0 +1,11 @@
+project_data:
+  display_name: Test Project
+  name: test_project
+  engine_version: 0 0 0
+  project_version: 0 0 0
+  build_path: "build"
+  start_world:  "content/worlds/empty_level.pff"
+  editor_start_world:  "content/worlds/empty_level.pff"
+  last_modified: 0 0 0 0 0 0 0 0
+  description:  A simple and empty PFF project
+  tags:

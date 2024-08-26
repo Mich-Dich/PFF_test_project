@@ -1,0 +1,24 @@
+editor_camera:
+  m_camera_pos: -2.84575 6.52334 -6.82011
+  m_camera_direction: 0.762422 2.46148 0
+  m_move_speed: 17.433922
+windows_to_show:
+  show_main_menu_bar: false
+  show_options: false
+  show_graphics_engine_settings: false
+  show_editor_settings: false
+  show_general_settings: false
+  show_engine_wiki: false
+  show_style_editor: false
+  show_demo_window: false
+  show_todo_lis: false
+world_viewport_windows_to_show:
+  show_renderer_backgrond_effect: false
+  show_general_debugger: true
+  show_outliner: true
+  show_details: false
+  show_world_settings: false
+world_vieport_data:
+  selected_entity: 2476473588138234799
+guizmo_data:
+  operation: 7
