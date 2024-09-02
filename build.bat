@@ -8,11 +8,13 @@ SETLOCAL EnableDelayedExpansion
 
 
 echo.
-echo ======== Building PFF Project
-echo.
-
-echo -------- Compile VS 2022 Solution:
-call C:/CustomGameEngine/PFF/bin/Debug-windows-x86_64/PFF_editor/../vendor/premake/premake5.exe vs2022
+if "%1" == "compile" (
+	echo -------- Compiling PFF Project
+	msbuild PFF_project.sln /p:Configuration=Debug /p:Platform=x64
+) else (
+	echo -------- Building PFF Project Solution
+	call C:/CustomGameEngine/PFF/bin/Debug-windows-x86_64/PFF_editor/../vendor/premake/premake5.exe vs2022
+)
 echo.
 
 echo -------- Compile Result:

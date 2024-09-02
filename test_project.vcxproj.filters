@@ -4,19 +4,28 @@
     <Filter Include="generated">
       <UniqueIdentifier>{54368C0D-C0A0-4084-09DF-F12975881ED9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="generated\procedural_meshes">
+      <UniqueIdentifier>{F8D1B601-64DF-E4E7-EDC5-E0D259D2B09E}</UniqueIdentifier>
+    </Filter>
     <Filter Include="src">
       <UniqueIdentifier>{2DAB880B-99B4-887C-2230-9F7C8E38947C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\procedural_meshes">
+      <UniqueIdentifier>{11F328C6-7D5F-E4C0-4653-7C1EB27E0629}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="generated\init.h">
       <Filter>generated</Filter>
     </ClInclude>
-    <ClInclude Include="generated\project-generated.h">
-      <Filter>generated</Filter>
+    <ClInclude Include="generated\procedural_meshes\simple_terrain_script-generated.h">
+      <Filter>generated\procedural_meshes</Filter>
     </ClInclude>
     <ClInclude Include="generated\test_script-generated.h">
       <Filter>generated</Filter>
+    </ClInclude>
+    <ClInclude Include="src\procedural_meshes\simple_terrain_script.h">
+      <Filter>src\procedural_meshes</Filter>
     </ClInclude>
     <ClInclude Include="src\project.h">
       <Filter>src</Filter>
@@ -28,6 +37,9 @@
   <ItemGroup>
     <ClCompile Include="generated\init.cpp">
       <Filter>generated</Filter>
+    </ClCompile>
+    <ClCompile Include="src\procedural_meshes\simple_terrain_script.cpp">
+      <Filter>src\procedural_meshes</Filter>
     </ClCompile>
     <ClCompile Include="src\project.cpp">
       <Filter>src</Filter>

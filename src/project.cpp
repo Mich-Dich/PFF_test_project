@@ -1,17 +1,17 @@
 
 #include "project.h"
 
-PROJECT_NAME::PROJECT_NAME() { }
+test_project::test_project() { }
 
-PROJECT_NAME::~PROJECT_NAME() { }
+test_project::~test_project() { }
 
-bool PROJECT_NAME::init()							{ return true; }
+bool test_project::init()							{ return true; }
 
-bool PROJECT_NAME::shutdown()						{ return true; }
+bool test_project::shutdown()						{ return true; }
 
-bool PROJECT_NAME::render(const f32 delta_time)		{ return true; }
+bool test_project::render(const f32 delta_time)		{ return true; }
 
-bool PROJECT_NAME::update(const f32 delta_time)		{ return true; }
+bool test_project::update(const f32 delta_time)		{ return true; }
 
 
 

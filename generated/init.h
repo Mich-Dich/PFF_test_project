@@ -1,64 +1,48 @@
 #pragma once
+
 #include <PFF.h>
-
 #define ENTT_STANDARD_CPP
-#include <entt.hpp>
+#include <entt/entt.hpp>
 
-extern "C" namespace PFF {
-	extern "C" namespace Init {
+#include "procedural_meshes/simple_terrain_script.h"
+#include "procedural_meshes/simple_terrain_script-generated.h"
+#include "test_script.h"
+#include "test_script-generated.h"
 
-		static void InitComponentIds(SceneData & scene)
-		{
-		}
-		extern "C" PFF_SCRIPT void AddComponent(entt::registry& registryRef, std::string className, entt::entity entity)
-		{
-			Log::Assert(registryRef.valid(entity), "Invalid entity in script");
-		}
+extern "C" namespace PFF::init {
 
-		extern "C" PFF_SCRIPT void UpdateScripts(entt::registry& registryRef, float dt)
-		{
-		}
+	static void init_component_ids(entt::registry* registry) {
 
-		extern "C" PFF_SCRIPT void EditorUpdateScripts(entt::registry& registryRef, float dt)
-		{
-		}
+		registry->storage<simple_terrain_script>();
+		registry->storage<DefaultScript>();
+	}
 
-		extern "C" PFF_SCRIPT void NotifyBeginContact(Entity a, Entity b)
-		{
-		}
+	PROJECT_API void add_component(std::string className, PFF::entity entity) {
 
-		extern "C" PFF_SCRIPT void NotifyEndContact(Entity a, Entity b)
-		{
-		}
+		ASSERT(entity.is_valid(), "", "Invalid entity in script");
+		for (auto strClass : reflect_simple_terrain_script_h::string_to_map) {
 
-		extern "C" PFF_SCRIPT void SaveScripts(entt::registry& registryRef, json& j, SceneData* sceneData)
-		{
-			Log::Info("Saving scripts");
-		}
+			if (strClass.first != className) 
+				continue;
 
-		extern "C" PFF_SCRIPT void LoadScript(entt::registry& registryRef, const json& j, Entity entity)
-		{
+			reflect_simple_terrain_script_h::add_component(className, entity);
+			return;
 		}
+		for (auto strClass : reflect_test_script_h::string_to_map) {
 
-		extern "C" PFF_SCRIPT void InitScripts(SceneData* sceneData)
-		{
-			Log::Info("Initializing scripts");
-			InitComponentIds(*sceneData);
-		}
+			if (strClass.first != className) 
+				continue;
 
-		extern "C" PFF_SCRIPT void InitImGui(void* ctx)
-		{
-			Log::Info("Initializing ImGui");
-			ImGui::SetCurrentContext((ImGuiContext*)ctx);
+			reflect_test_script_h::add_component(className, entity);
+			return;
 		}
+	}
 
-		extern "C" PFF_SCRIPT void ImGui(entt::registry& registryRef, Entity entity)
-		{
-		}
+	PROJECT_API void init_scripts(entt::registry* registry) {
 
-		extern "C" PFF_SCRIPT void DeleteScripts()
-		{
-			Log::Info("Deleting Scripts");
-		}
+		LOG(Info, "Initializing scripts");
+		init_component_ids(registry);
+		reflect_simple_terrain_script_h::init();
+		reflect_test_script_h::init();
 	}
 }

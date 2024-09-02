@@ -2,12 +2,12 @@ map_data:
   file_header:
     version: 1 0 0
     type: 2
-    timestamp: 2024 8 26 1 16 31 43 562
+    timestamp: 2024 9 2 1 20 21 43 196
   entities:
   - tag: SM_basicmesh_Sphere
     ID: 4164406557105595165
     transform_component:
-      translation: 4.79345 -0.670186 0.147795
+      translation: 4.79345 -1.9754 5.27077
       rotation: -1.15454 -0.337078 0
       scale: 0.999999 0.999999 1
     mesh_component:
@@ -20,7 +20,7 @@ map_data:
   - tag: SM_basicmesh_Sphere
     ID: 2476473588138234799
     transform_component:
-      translation: 0 0 0
+      translation: 0 -1.30521 5.12298
       rotation: 0 -0 0
       scale: 1 1 1
     mesh_component:
@@ -31,3 +31,33 @@ map_data:
       parent_ID: 0
       children_ID:
       - ID: 4164406557105595165
+  - tag: procedural_script_test
+    ID: 17148112853673061744
+    transform_component:
+      translation: 0 0 0
+      rotation: 0 -0 0
+      scale: 1 1 1
+  - tag: procedural_script_test
+    ID: 3544383103436576430
+    transform_component:
+      translation: 0 0 0
+      rotation: 0 -0 0
+      scale: 1 1 1
+  - tag: procedural_script_test
+    ID: 14310122936523348461
+    transform_component:
+      translation: 0 0 0
+      rotation: 0 -0 0
+      scale: 1 1 1
+  - tag: procedural_script_test
+    ID: 9487945486396414017
+    transform_component:
+      translation: 0 0 0
+      rotation: 0 -0 0
+      scale: 1 1 1
+  - tag: procedural_script_test
+    ID: 13628233356819360716
+    transform_component:
+      translation: 0 0 0
+      rotation: 0 -0 0
+      scale: 1 1 1

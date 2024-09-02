@@ -28,7 +28,8 @@ workspace "PFF_project"
 
 	includedirs
 	{
-		"%{prj.name}/content",
+		"content",
+		"src",
 		"C:/CustomGameEngine/PFF/PFF/src",
 		"C:/CustomGameEngine/PFF/%{vendor_path.entt}",
 		"C:/CustomGameEngine/PFF/%{vendor_path.glm}",
@@ -54,6 +55,7 @@ workspace "PFF_project"
 	filter "system:windows"
 		defines "PFF_PLATFORM_WINDOWS"
 		systemversion "latest"
+		buildcommands { "del /S *.pdb" }
 
 	filter "configurations:Debug"
 		defines "PROJECT_DEBUG"

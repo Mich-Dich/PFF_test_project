@@ -1,12 +1,13 @@
 #pragma once
 
 #include <PFF.h>
+#include <entry_point.h>
 
-class PROJECT_NAME : public PFF::application {
+class test_project : public PFF::application {
 public:
 
-	PROJECT_NAME();
-	~PROJECT_NAME();
+	test_project();
+	~test_project();
 
 	bool init() override;
 	bool render(const f32 delta_time) override;
@@ -17,25 +18,5 @@ public:
 
 namespace PFF {
 
-	application* create_application() { return new PROJECT_NAME(); }
+	application* create_application() { return new test_project(); }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-extern "C" __declspec(dllexport) void test_function();
