@@ -6,8 +6,7 @@
 namespace PFF {
 
 	static PFF::util::noise noise(PFF::util::noise_type::perlin);
-	static f32 pos_offset = 0;
-
+	
 	static const glm::ivec2 grid_size = glm::ivec2(5);			// number of grid tiles
 	static const glm::vec2 grid_tile_size = glm::ivec2(100);	// size of a grid tile
 	static const glm::vec2 grid_resolution = glm::ivec2(30);
@@ -54,29 +53,31 @@ namespace PFF {
 			}
 		}
 
-		add_surface(0, static_cast<int>(m_mesh_asset->indices.size()));
+		add_surface(0, static_cast<int>(m_mesh_asset.indices.size()));
 		recalculate_bounds();
 		apply_mesh();
 	}
 
 	void simple_terrain_script::on_update(f32 delta_time) {
+		
+		{
+			PFF_ISOLATED_PROFILER_SCOPED(1000, "update mesh vertexies", PFF::duration_precision::microseconds);
 
-		//pos_offset += delta_time * 20;
-		//int counter = 0;
-		//for (int y = 0; y <= iterations_y; ++y) {
-		//	for (int x = 0; x <= iterations_x; ++x) {
+			static f32 pos_offset = 0;
+			pos_offset += delta_time * 20;
+			int counter = 0;
+			for (int y = 0; y <= iterations_y; ++y) {
+				for (int x = 0; x <= iterations_x; ++x) {
 
-		//		m_mesh_asset->vertices[counter].position = glm::vec3(
-		//			(x * pos_multiplier.x) - offset.x,
-		//			noise.get_noise((f32)x+ pos_offset, (f32)y+ pos_offset) * 100.f,
-		//			(y * pos_multiplier.y) - offset.y
-		//		);
-
-		//		counter++;
-		//	}
-		//}
-		apply_mesh();
-
+					m_mesh_asset.vertices[counter].position.y = noise.get_noise((f32)x + pos_offset, (f32)y + pos_offset) * 100.f;
+					counter++;
+				}
+			}
+		}
+		{
+			PFF_ISOLATED_PROFILER_SCOPED(1000, "apply mesh", PFF::duration_precision::microseconds);
+			apply_mesh();
+		}
 	}
 
 }
