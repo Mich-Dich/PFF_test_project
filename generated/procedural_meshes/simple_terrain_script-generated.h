@@ -50,11 +50,11 @@ namespace PFF::reflect_simple_terrain_script_h {
 
 		if(class_name == "simple_terrain_script") {
 
-			if constexpr (std::is_base_of_v<entity_script, simple_terrain_script>)
-				entity.add_script_component<simple_terrain_script>();
+			if constexpr (std::is_base_of_v<procedural_mesh_script, simple_terrain_script>)
+				entity.add_procedural_mesh_component<simple_terrain_script>("simple_terrain_script");
 
-			else if constexpr (std::is_base_of_v<procedural_mesh_script, simple_terrain_script>)
-				entity.add_procedural_mesh_component<simple_terrain_script>();
+			else if constexpr (std::is_base_of_v<entity_script, simple_terrain_script>)
+				entity.add_script_component<simple_terrain_script>();
 
 		}
 	}

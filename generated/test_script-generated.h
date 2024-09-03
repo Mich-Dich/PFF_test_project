@@ -61,11 +61,11 @@ namespace PFF::reflect_test_script_h {
 
 		if(class_name == "DefaultScript") {
 
-			if constexpr (std::is_base_of_v<entity_script, DefaultScript>)
-				entity.add_script_component<DefaultScript>();
+			if constexpr (std::is_base_of_v<procedural_mesh_script, DefaultScript>)
+				entity.add_procedural_mesh_component<DefaultScript>("DefaultScript");
 
-			else if constexpr (std::is_base_of_v<procedural_mesh_script, DefaultScript>)
-				entity.add_procedural_mesh_component<DefaultScript>();
+			else if constexpr (std::is_base_of_v<entity_script, DefaultScript>)
+				entity.add_script_component<DefaultScript>();
 
 		}
 	}

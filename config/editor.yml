@@ -1,7 +1,7 @@
 editor_camera:
-  m_camera_pos: -2.84575 6.52334 -6.82011
-  m_camera_direction: 0.762422 2.46148 0
-  m_move_speed: 17.433922
+  m_camera_pos: -90.2867 115.552 -81.3698
+  m_camera_direction: 0.726622 2.37252 0
+  m_move_speed: 33.973785
 windows_to_show:
   show_main_menu_bar: false
   show_options: false
@@ -14,9 +14,9 @@ windows_to_show:
   show_todo_lis: false
 world_viewport_windows_to_show:
   show_renderer_backgrond_effect: false
-  show_general_debugger: true
+  show_general_debugger: false
   show_outliner: true
-  show_details: false
+  show_details: true
   show_world_settings: false
 world_vieport_data:
   selected_entity: 2476473588138234799

@@ -2,7 +2,7 @@ map_data:
   file_header:
     version: 1 0 0
     type: 2
-    timestamp: 2024 9 2 1 20 21 43 196
+    timestamp: 2024 9 3 2 16 40 3 576
   entities:
   - tag: SM_basicmesh_Sphere
     ID: 4164406557105595165
@@ -32,32 +32,12 @@ map_data:
       children_ID:
       - ID: 4164406557105595165
   - tag: procedural_script_test
-    ID: 17148112853673061744
+    ID: 7072220998543679919
     transform_component:
       translation: 0 0 0
       rotation: 0 -0 0
       scale: 1 1 1
-  - tag: procedural_script_test
-    ID: 3544383103436576430
-    transform_component:
-      translation: 0 0 0
-      rotation: 0 -0 0
-      scale: 1 1 1
-  - tag: procedural_script_test
-    ID: 14310122936523348461
-    transform_component:
-      translation: 0 0 0
-      rotation: 0 -0 0
-      scale: 1 1 1
-  - tag: procedural_script_test
-    ID: 9487945486396414017
-    transform_component:
-      translation: 0 0 0
-      rotation: 0 -0 0
-      scale: 1 1 1
-  - tag: procedural_script_test
-    ID: 13628233356819360716
-    transform_component:
-      translation: 0 0 0
-      rotation: 0 -0 0
-      scale: 1 1 1
+    procedural_mesh_component:
+      script_name: simple_terrain_script
+      mobility: 0
+      shoudl_render: true
