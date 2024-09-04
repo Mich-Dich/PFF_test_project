@@ -2,7 +2,7 @@ map_data:
   file_header:
     version: 1 0 0
     type: 2
-    timestamp: 2024 9 3 2 22 0 32 331
+    timestamp: 2024 9 4 3 20 40 37 135
   entities:
   - tag: SM_basicmesh_Sphere
     ID: 4164406557105595165
@@ -36,8 +36,8 @@ map_data:
     transform_component:
       translation: 0 0 0
       rotation: 0 -0 0
-      scale: 1 1 1
+      scale: 0.999999 0.999999 0.999999
     procedural_mesh_component:
-      script_name: simple_terrain_script
+      script_name: test_project::simple_terrain_script
       mobility: 0
       shoudl_render: true

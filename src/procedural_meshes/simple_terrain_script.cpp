@@ -3,7 +3,7 @@
 
 #include "engine/render/render_public_data.h"
 
-namespace PFF {
+namespace test_project {
 
 	static PFF::util::noise noise(PFF::util::noise_type::perlin);
 	
@@ -22,23 +22,27 @@ namespace PFF {
 		(grid_tile_size.y / grid_resolution.y)
 	);
 
-
 	void simple_terrain_script::on_create() {
+
+		test_unit_long = 42;
 
 		noise.Set_fractal_type(PFF::util::fractal_type::FBm);
 		noise.set_frequency(0.005f);
 		noise.set_fractal_octaves(4);
 		noise.set_fractal_lacunarity(2.3f);
 
+		int counter = 0;
 		for (int y = 0; y <= iterations_y; ++y) {
 			for (int x = 0; x <= iterations_x; ++x) {
 
-				add_vertex(glm::vec3(
+				add_vertex(counter, 
+					glm::vec3(
 						(x * pos_multiplier.x) - offset.x,
 						noise.get_noise((f32)x, (f32)y) * 50.f,
 						(y * pos_multiplier.y) - offset.y),
-					glm::vec3{ 0, 0, 1 },
+					glm::vec3{ 0, 1, 0 },
 					glm::vec2((f32)x / grid_resolution.x, (f32)y / grid_resolution.y));
+				counter++;
 			}
 		}
 
@@ -59,25 +63,20 @@ namespace PFF {
 	}
 
 	void simple_terrain_script::on_update(f32 delta_time) {
+
+		test_f32 = delta_time;
 		
-		{
-			PFF_ISOLATED_PROFILER_SCOPED(1000, "update mesh vertexies", PFF::duration_precision::microseconds);
+		//static f32 pos_offset = 0;
+		//pos_offset += delta_time * 20;
+		//int counter = 0;
+		//for (int y = 0; y <= iterations_y; ++y) {
+		//	for (int x = 0; x <= iterations_x; ++x) {
 
-			static f32 pos_offset = 0;
-			pos_offset += delta_time * 20;
-			int counter = 0;
-			for (int y = 0; y <= iterations_y; ++y) {
-				for (int x = 0; x <= iterations_x; ++x) {
-
-					m_mesh_asset.vertices[counter].position.y = noise.get_noise((f32)x + pos_offset, (f32)y + pos_offset) * 100.f;
-					counter++;
-				}
-			}
-		}
-		{
-			PFF_ISOLATED_PROFILER_SCOPED(1000, "apply mesh", PFF::duration_precision::microseconds);
-			apply_mesh();
-		}
+		//		m_mesh_asset.vertices[counter].position.y = noise.get_noise((f32)x + pos_offset, (f32)y + pos_offset) * 100.f;
+		//		counter++;
+		//	}
+		//}
+		//apply_mesh();
 	}
 
 }

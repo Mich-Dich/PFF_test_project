@@ -42,12 +42,13 @@ workspace "PFF_project"
 	libdirs 
 	{
 		"C:/CustomGameEngine/PFF/bin/Debug-windows-x86_64/PFF",
-		"C:/CustomGameEngine/PFF/bin/Debug-windows-x86_64/imgui",
+		"C:/CustomGameEngine/PFF/bin/Debug-windows-x86_64/vendor/imgui",
 	}
 
 	links
 	{
-		"PFF"
+		"PFF",
+		"ImGui"
 	}
 
 	defines "PFF_PROJECT"

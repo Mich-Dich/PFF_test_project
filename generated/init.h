@@ -11,38 +11,88 @@
 
 extern "C" namespace PFF::init {
 
-	static void init_component_ids(entt::registry* registry) {
+	static const char* procedural_mesh_scripts[] = {
+		"test_project::simple_terrain_script",
+		nullptr
+	};
 
-		registry->storage<simple_terrain_script>();
-		registry->storage<DefaultScript>();
-	}
-
-	PROJECT_API void add_component(std::string className, PFF::entity entity) {
-
-		ASSERT(entity.is_valid(), "", "Invalid entity in script");
-		for (auto strClass : reflect_simple_terrain_script_h::string_to_map) {
-
-			if (strClass.first != className) 
-				continue;
-
-			reflect_simple_terrain_script_h::add_component(className, entity);
-			return;
-		}
-		for (auto strClass : reflect_test_script_h::string_to_map) {
-
-			if (strClass.first != className) 
-				continue;
-
-			reflect_test_script_h::add_component(className, entity);
-			return;
-		}
-	}
+	static const char* scripts[] = {
+		"PFF::DefaultScript",
+		nullptr
+	};
 
 	PROJECT_API void init_scripts(entt::registry* registry) {
 
 		LOG(Info, "Initializing scripts");
-		init_component_ids(registry);
+
+		registry->storage<test_project::simple_terrain_script>();
+		registry->storage<PFF::DefaultScript>();
+
+		ImGui::SetCurrentContext(application::get().get_imgui_layer()->get_context());
 		reflect_simple_terrain_script_h::init();
 		reflect_test_script_h::init();
 	}
+
+	PROJECT_API void add_component(std::string class_name, PFF::entity entity) {
+
+		ASSERT(entity.is_valid(), "", "Invalid entity in script");
+		for (auto str_class : reflect_simple_terrain_script_h::string_to_map) {
+
+			if (str_class.first != class_name) 
+				continue;
+
+			reflect_simple_terrain_script_h::add_component(class_name, entity);
+			return;
+		}
+		for (auto str_class : reflect_test_script_h::string_to_map) {
+
+			if (str_class.first != class_name) 
+				continue;
+
+			reflect_test_script_h::add_component(class_name, entity);
+			return;
+		}
+	}
+
+	PROJECT_API void display_properties(std::string class_name, entity_script* script) {
+
+		if (!script) {
+			ImGui::Text("Script pointer is null");
+			return;
+		}
+
+		for (auto str_class : reflect_simple_terrain_script_h::string_to_map) {
+
+			if (str_class.first != class_name) 
+				continue;
+
+			reflect_simple_terrain_script_h::display_properties((test_project::simple_terrain_script*)script);
+			return;
+		}
+		for (auto str_class : reflect_test_script_h::string_to_map) {
+
+			if (str_class.first != class_name) 
+				continue;
+
+			reflect_test_script_h::display_properties((PFF::DefaultScript*)script);
+			return;
+		}
+	}
+
+	PROJECT_API const char** get_all_procedural_mesh_scripts(u32 * count) {
+
+		if (count != nullptr)
+			*count = sizeof(procedural_mesh_scripts) / sizeof(procedural_mesh_scripts[0]) - 1;			// Calculate the number of items in the array (excluding the null terminator)
+		
+		return procedural_mesh_scripts;
+	}
+
+	PROJECT_API const char** get_all_scripts(u32 * count) {
+
+		if (count != nullptr)
+			*count = sizeof(scripts) / sizeof(scripts[0]) - 1;			// Calculate the number of items in the array (excluding the null terminator)
+		
+		return scripts;
+	}
+
 }
