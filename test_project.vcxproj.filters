@@ -21,10 +21,16 @@
     <ClInclude Include="generated\procedural_meshes\simple_terrain_script-generated.h">
       <Filter>generated\procedural_meshes</Filter>
     </ClInclude>
+    <ClInclude Include="generated\procedural_meshes\tree_generator-generated.h">
+      <Filter>generated\procedural_meshes</Filter>
+    </ClInclude>
     <ClInclude Include="generated\test_script-generated.h">
       <Filter>generated</Filter>
     </ClInclude>
     <ClInclude Include="src\procedural_meshes\simple_terrain_script.h">
+      <Filter>src\procedural_meshes</Filter>
+    </ClInclude>
+    <ClInclude Include="src\procedural_meshes\tree_generator.h">
       <Filter>src\procedural_meshes</Filter>
     </ClInclude>
     <ClInclude Include="src\project.h">
@@ -39,6 +45,9 @@
       <Filter>generated</Filter>
     </ClCompile>
     <ClCompile Include="src\procedural_meshes\simple_terrain_script.cpp">
+      <Filter>src\procedural_meshes</Filter>
+    </ClCompile>
+    <ClCompile Include="src\procedural_meshes\tree_generator.cpp">
       <Filter>src\procedural_meshes</Filter>
     </ClCompile>
     <ClCompile Include="src\project.cpp">

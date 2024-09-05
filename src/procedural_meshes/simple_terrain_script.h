@@ -12,14 +12,8 @@ namespace test_project {
 		void on_destroy() { LOG(Error, "ENDING script"); }
 		void on_update(f32 delta_time);
 
-		PFF_PROPERTY();
-		f32 test_f32 = 3.2425f;
-		
-		PFF_PROPERTY();
-		u32 test_unit = 42;
-		
-		PFF_PROPERTY();
-		u64 test_unit_long = 5;
+		PFF_PROPERTY(UI_slider_drag_speed: 10.f, min_value : -200.f, max_value : 200.f);
+		f32 height_scale = 100.f;
 
 	};
 }

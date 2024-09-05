@@ -15,22 +15,18 @@ namespace PFF::reflect_simple_terrain_script_h {
 
 	std::vector<entt::id_type> ids = {
 
-		"test_project::simple_terrain_script::test_f32"_hs,
-		"test_project::simple_terrain_script::test_unit"_hs,
-		"test_project::simple_terrain_script::test_unit_long"_hs
+		"test_project::simple_terrain_script::height_scale"_hs,
 	};
 
 	std::map<entt::id_type, const char*> debug_names = {
 
 		{ entt::type_hash<test_project::simple_terrain_script>::value(), "test_project::simple_terrain_script"},
-		{ids[0], "test_f32"},
-		{ids[1], "test_unit"},
-		{ids[2], "test_unit_long"}
+		{ids[0], "height_scale"}
 	};
 
 	std::map<std::string, entt::id_type> string_to_map = {
 
-		{ "test_project::simple_terrain_script", entt::type_hash<test_project::simple_terrain_script>::value() }
+		{ "test_project::simple_terrain_script", entt::type_hash<test_project::simple_terrain_script>::value() },
 	};
 
 	void init() {
@@ -40,27 +36,28 @@ namespace PFF::reflect_simple_terrain_script_h {
 
 		initialized = true;
 		auto simple_terrain_script_factory = entt::meta<test_project::simple_terrain_script>()
-			.data<&test_project::simple_terrain_script::test_f32, entt::as_ref_t>(ids[0])
-			.data<&test_project::simple_terrain_script::test_unit, entt::as_ref_t>(ids[1])
-			.data<&test_project::simple_terrain_script::test_unit_long, entt::as_ref_t>(ids[2])
+			.data<&test_project::simple_terrain_script::height_scale, entt::as_ref_t>(ids[0])
 			.type(entt::type_hash<test_project::simple_terrain_script>::value()); 
 
 	}
 
 	void display_properties(test_project::simple_terrain_script* script) {
 
-		UI::table_row("test_f32", script->test_f32);
-		UI::table_row("test_unit", script->test_unit);
-		UI::table_row("test_unit_long", script->test_unit_long);
+		// class specifiers []
+		if (UI::begin_collapsing_header_section("data")) {
+			UI::begin_table("entity_component", false);
+			UI::table_row("height scale##test_project::simple_terrain_script::height_scale", script->height_scale, static_cast<f32>(10.f), static_cast<f32>(200.f), static_cast<f32>(200.f));
+			UI::end_table();
+		}
+		UI::end_collapsing_header_section();
+
 	}
 
 	// test_project::simple_terrain_script
 	void serialize_script(test_project::simple_terrain_script& component, const std::filesystem::path filepath, serializer::option option) { 
 
 		serializer::yaml(filepath, "test_project::simple_terrain_script", option)
-			.entry(KEY_VALUE(component.test_f32))
-			.entry(KEY_VALUE(component.test_unit))
-			.entry(KEY_VALUE(component.test_unit_long));
+			.entry(KEY_VALUE(component.height_scale));
 	}
 
 	void delete_scripts(entt::registry& registry) {

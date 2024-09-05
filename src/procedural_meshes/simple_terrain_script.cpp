@@ -9,7 +9,7 @@ namespace test_project {
 	
 	static const glm::ivec2 grid_size = glm::ivec2(5);			// number of grid tiles
 	static const glm::vec2 grid_tile_size = glm::ivec2(100);	// size of a grid tile
-	static const glm::vec2 grid_resolution = glm::ivec2(30);
+	static const glm::vec2 grid_resolution = glm::ivec2(10);
 	static const int iterations_x = static_cast<u32>(grid_size.x * grid_resolution.x);
 	static const int iterations_y = static_cast<u32>(grid_size.y * grid_resolution.y);
 
@@ -23,8 +23,6 @@ namespace test_project {
 	);
 
 	void simple_terrain_script::on_create() {
-
-		test_unit_long = 42;
 
 		noise.Set_fractal_type(PFF::util::fractal_type::FBm);
 		noise.set_frequency(0.005f);
@@ -64,19 +62,17 @@ namespace test_project {
 
 	void simple_terrain_script::on_update(f32 delta_time) {
 
-		test_f32 = delta_time;
-		
-		//static f32 pos_offset = 0;
-		//pos_offset += delta_time * 20;
-		//int counter = 0;
-		//for (int y = 0; y <= iterations_y; ++y) {
-		//	for (int x = 0; x <= iterations_x; ++x) {
+		static f32 pos_offset = 0;
+		pos_offset += delta_time * 20;
+		int counter = 0;
+		for (int y = 0; y <= iterations_y; ++y) {
+			for (int x = 0; x <= iterations_x; ++x) {
 
-		//		m_mesh_asset.vertices[counter].position.y = noise.get_noise((f32)x + pos_offset, (f32)y + pos_offset) * 100.f;
-		//		counter++;
-		//	}
-		//}
-		//apply_mesh();
+				m_mesh_asset.vertices[counter].position.y = noise.get_noise((f32)x + pos_offset, (f32)y + pos_offset) * height_scale;
+				counter++;
+			}
+		}
+		apply_mesh();
 	}
 
 }

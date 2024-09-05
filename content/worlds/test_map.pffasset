@@ -2,12 +2,12 @@ map_data:
   file_header:
     version: 1 0 0
     type: 2
-    timestamp: 2024 9 4 3 20 40 37 135
+    timestamp: 2024 9 6 5 1 43 59 665
   entities:
   - tag: SM_basicmesh_Sphere
     ID: 4164406557105595165
     transform_component:
-      translation: 4.79345 -1.9754 5.27077
+      translation: -12.6023 0 15.4853
       rotation: -1.15454 -0.337078 0
       scale: 0.999999 0.999999 1
     mesh_component:
@@ -20,7 +20,7 @@ map_data:
   - tag: SM_basicmesh_Sphere
     ID: 2476473588138234799
     transform_component:
-      translation: 0 -1.30521 5.12298
+      translation: -11.6675 0 10.2102
       rotation: 0 -0 0
       scale: 1 1 1
     mesh_component:
@@ -34,10 +34,10 @@ map_data:
   - tag: procedural_script_test
     ID: 7072220998543679919
     transform_component:
-      translation: 0 0 0
+      translation: 13.6837 -1.38688e-06 -29.0103
       rotation: 0 -0 0
       scale: 0.999999 0.999999 0.999999
     procedural_mesh_component:
-      script_name: test_project::simple_terrain_script
+      script_name: test_project::tree_generator
       mobility: 0
       shoudl_render: true

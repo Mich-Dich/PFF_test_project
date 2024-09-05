@@ -16,7 +16,7 @@ namespace PFF::reflect_test_script_h {
 	std::vector<entt::id_type> ids = {
 
 		"PFF::DefaultScript::m_example_float_property"_hs,
-		"PFF::DefaultScript::m_example_int_property"_hs
+		"PFF::DefaultScript::m_example_int_property"_hs,
 	};
 
 	std::map<entt::id_type, const char*> debug_names = {
@@ -28,7 +28,7 @@ namespace PFF::reflect_test_script_h {
 
 	std::map<std::string, entt::id_type> string_to_map = {
 
-		{ "PFF::DefaultScript", entt::type_hash<PFF::DefaultScript>::value() }
+		{ "PFF::DefaultScript", entt::type_hash<PFF::DefaultScript>::value() },
 	};
 
 	void init() {
@@ -46,8 +46,15 @@ namespace PFF::reflect_test_script_h {
 
 	void display_properties(PFF::DefaultScript* script) {
 
-		UI::table_row("m_example_float_property", script->m_example_float_property);
-		UI::table_row("m_example_int_property", script->m_example_int_property);
+		// class specifiers []
+		if (UI::begin_collapsing_header_section("data")) {
+			UI::begin_table("entity_component", false);
+			UI::table_row("m example float property##PFF::DefaultScript::m_example_float_property", script->m_example_float_property);
+			UI::table_row("m example int property##PFF::DefaultScript::m_example_int_property", script->m_example_int_property);
+			UI::end_table();
+		}
+		UI::end_collapsing_header_section();
+
 	}
 
 	// PFF::DefaultScript

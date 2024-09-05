@@ -112,14 +112,17 @@
   <ItemGroup>
     <ClInclude Include="generated\init.h" />
     <ClInclude Include="generated\procedural_meshes\simple_terrain_script-generated.h" />
+    <ClInclude Include="generated\procedural_meshes\tree_generator-generated.h" />
     <ClInclude Include="generated\test_script-generated.h" />
     <ClInclude Include="src\procedural_meshes\simple_terrain_script.h" />
+    <ClInclude Include="src\procedural_meshes\tree_generator.h" />
     <ClInclude Include="src\project.h" />
     <ClInclude Include="src\test_script.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="generated\init.cpp" />
     <ClCompile Include="src\procedural_meshes\simple_terrain_script.cpp" />
+    <ClCompile Include="src\procedural_meshes\tree_generator.cpp" />
     <ClCompile Include="src\project.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
