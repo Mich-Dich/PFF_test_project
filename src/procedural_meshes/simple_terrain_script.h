@@ -13,7 +13,7 @@ namespace test_project {
 		void on_update(f32 delta_time);
 
 		PFF_PROPERTY(UI_slider_drag_speed: 10.f, min_value : -200.f, max_value : 200.f);
-		f32 height_scale = 100.f;
+		f32 height_scale = 110.f;
 
 	};
 }

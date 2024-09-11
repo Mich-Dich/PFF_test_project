@@ -11,15 +11,8 @@
 #include "test_script.h"
 #include "test_script-generated.h"
 
-#define PFF_ADD_COMPONENT_GENERATED_MACRO(name)					for (auto str_class : reflect_##name::string_to_map) {			\
-																	if (str_class.first != class_name) continue;				\
-																	reflect_##name::add_component(class_name, entity);			\
-																	return;}
-
-#define PFF_DISPLAY_PROPERTIE_GENERATED_MACRO(name, cast)		for (auto str_class : reflect_##name::string_to_map) {			\
-																	if (str_class.first != class_name) continue;				\
-																	reflect_##name::display_properties((##cast*) script);		\
-																	return;}
+#define RETURN_CHAR_ARRAY(array_name) 				if (count != nullptr) *count = sizeof(array_name) / sizeof(array_name[0]) - 1;		\
+														return array_name;
 
 extern "C" namespace PFF::init {
 
@@ -34,54 +27,17 @@ extern "C" namespace PFF::init {
 		nullptr
 	};
 
-	PROJECT_API void init_scripts(entt::registry* registry) {
 
-		LOG(Info, "Initializing scripts");
+	PROJECT_API void init_scripts(entt::registry* registry);
 
-		registry->storage<test_project::simple_terrain_script>();
-		registry->storage<test_project::tree_generator>();
-		registry->storage<PFF::DefaultScript>();
+	PROJECT_API void add_component(std::string class_name, PFF::entity entity);
 
-		ImGui::SetCurrentContext(application::get().get_imgui_layer()->get_context());
-		reflect_simple_terrain_script_h::init();
-		reflect_tree_generator_h::init();
-		reflect_test_script_h::init();
-	}
+	PROJECT_API void display_properties(std::string class_name, entity_script* script);
 
-	PROJECT_API void add_component(std::string class_name, PFF::entity entity) {
+	PROJECT_API void serialize_script(std::string class_name, entity_script* script, serializer::yaml& serializer);
 
-		ASSERT(entity.is_valid(), "", "Invalid entity in script");
-		PFF_ADD_COMPONENT_GENERATED_MACRO(simple_terrain_script_h);
-		PFF_ADD_COMPONENT_GENERATED_MACRO(tree_generator_h);
-		PFF_ADD_COMPONENT_GENERATED_MACRO(test_script_h);
-	}
+	PROJECT_API const char** get_all_procedural_mesh_scripts(u32* count) { RETURN_CHAR_ARRAY(procedural_mesh_scripts); }
 
-	PROJECT_API void display_properties(std::string class_name, entity_script* script) {
-
-		if (!script) {
-			ImGui::Text("Script pointer is null");
-			return;
-		}
-
-		PFF_DISPLAY_PROPERTIE_GENERATED_MACRO(simple_terrain_script_h, test_project::simple_terrain_script);
-		PFF_DISPLAY_PROPERTIE_GENERATED_MACRO(tree_generator_h, test_project::tree_generator);
-		PFF_DISPLAY_PROPERTIE_GENERATED_MACRO(test_script_h, PFF::DefaultScript);
-	}
-
-	PROJECT_API const char** get_all_procedural_mesh_scripts(u32 * count) {
-
-		if (count != nullptr)
-			*count = sizeof(procedural_mesh_scripts) / sizeof(procedural_mesh_scripts[0]) - 1;			// Calculate the number of items in the array (excluding the null terminator)
-		
-		return procedural_mesh_scripts;
-	}
-
-	PROJECT_API const char** get_all_scripts(u32 * count) {
-
-		if (count != nullptr)
-			*count = sizeof(scripts) / sizeof(scripts[0]) - 1;			// Calculate the number of items in the array (excluding the null terminator)
-		
-		return scripts;
-	}
+	PROJECT_API const char** get_all_scripts(u32 * count) { RETURN_CHAR_ARRAY(scripts); }
 
 }

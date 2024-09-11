@@ -2,7 +2,7 @@ map_data:
   file_header:
     version: 1 0 0
     type: 2
-    timestamp: 2024 9 6 5 1 43 59 665
+    timestamp: 2024 9 11 3 13 9 44 775
   entities:
   - tag: SM_basicmesh_Sphere
     ID: 4164406557105595165
@@ -41,3 +41,20 @@ map_data:
       script_name: test_project::tree_generator
       mobility: 0
       shoudl_render: true
+      data:
+        direction: 0 1 0
+        starting_size: 8.000000
+        random_seed: 42
+      trunk:
+        trunk_section_length: 25.000000
+        trunk_section_length_variation: 50.000000
+        trunk_split_chance: 0.170000
+        trunk_segment_count: 5
+        trunk_segment_count_variation: 5
+      branch:
+        branch_section_length: 24.000000
+        branch_section_length_variation: 0.200000
+        branch_direction_variation: 0.200000
+        branch_split_chance: 0.340000
+        branch_segment_count: 5
+        branch_segment_count_variation: 5

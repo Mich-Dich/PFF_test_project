@@ -1,0 +1,6 @@
+[[90m12:19:27:119[97m[40m] [[90mTRACE main.cpp - main:44[97m[40m] operation [parse directory] path to project root ["C:/CustomGameEngine/PFF_projects/test_project"]
+[[90m12:19:27:125[97m[40m] [[90mTRACE script_parser.cpp - generate_header_file:45[97m[40m] generating header for: [procedural_meshes/simple_terrain_script.h]
+[[90m12:19:27:133[97m[40m] [[90mTRACE script_parser.cpp - generate_header_file:45[97m[40m] generating header for: [procedural_meshes/tree_generator.h]
+[[90m12:19:27:141[97m[40m] [[90mTRACE script_parser.cpp - generate_header_file:45[97m[40m] generating header for: [test_script.h]
+[[90m12:19:27:146[97m[40m] [[90mTRACE code_generator.cpp - generate_init_file_header:26[97m[40m]  generating init-files for project 
+[[90m12:19:27:150[97m[40m] [[90mTRACE code_generator.cpp - generate_init_file_implemenation:138[97m[40m]  generating init-files for project 

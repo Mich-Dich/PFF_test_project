@@ -12,7 +12,7 @@ workspace "PFF_project"
 		cppdialect "C++17"
 		staticruntime "off"
 
-	targetdir("bin/%{prj.name}")
+	targetdir("bin/%{prj.name}_build_DLL")
 	objdir("bin-int/%{prj.name}")
 
 	--------------------------------------TODO: make PCH an option in the editor--------------------------------------
@@ -52,6 +52,11 @@ workspace "PFF_project"
 	}
 
 	defines "PFF_PROJECT"
+
+    prebuildcommands {
+		"cd C:/CustomGameEngine/PFF/bin/Debug-windows-x86_64/PFF && " ..
+		"C:/CustomGameEngine/PFF/bin/Debug-windows-x86_64/PFF_helper/PFF_helper.exe 0 0 C:/CustomGameEngine/PFF_projects/test_project",
+    }
 
 	filter "system:windows"
 		defines "PFF_PLATFORM_WINDOWS"

@@ -33,8 +33,8 @@ namespace PFF::reflect_test_script_h {
 
 	void init() {
 
-		if (initialized)
-			return;
+		//if (initialized)
+		//	return;
 
 		initialized = true;
 		auto DefaultScript_factory = entt::meta<PFF::DefaultScript>()
@@ -44,7 +44,7 @@ namespace PFF::reflect_test_script_h {
 
 	}
 
-	void display_properties(PFF::DefaultScript* script) {
+	bool display_properties(PFF::DefaultScript* script) {
 
 		// class specifiers []
 		if (UI::begin_collapsing_header_section("data")) {
@@ -55,14 +55,17 @@ namespace PFF::reflect_test_script_h {
 		}
 		UI::end_collapsing_header_section();
 
+		return false;
 	}
 
-	// PFF::DefaultScript
-	void serialize_script(PFF::DefaultScript& component, const std::filesystem::path filepath, serializer::option option) { 
+	void serialize_script(PFF::DefaultScript* script, serializer::yaml& serializer) {
 
-		serializer::yaml(filepath, "PFF::DefaultScript", option)
-			.entry(KEY_VALUE(component.m_example_float_property))
-			.entry(KEY_VALUE(component.m_example_int_property));
+		// specifiers []
+		serializer.sub_section("data", [&](serializer::yaml& data_section) {
+
+			data_section.entry(KEY_VALUE(script->m_example_float_property))
+				.entry(KEY_VALUE(script->m_example_int_property));
+		});
 	}
 
 	void delete_scripts(entt::registry& registry) {

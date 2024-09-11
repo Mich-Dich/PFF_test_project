@@ -42,14 +42,14 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <OutDir>bin\test_project\</OutDir>
+    <OutDir>bin\test_project_build_DLL\</OutDir>
     <IntDir>bin-int\test_project\Debug\</IntDir>
     <TargetName>test_project</TargetName>
     <TargetExt>.dll</TargetExt>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <OutDir>bin\test_project\</OutDir>
+    <OutDir>bin\test_project_build_DLL\</OutDir>
     <IntDir>bin-int\test_project\Release\</IntDir>
     <TargetName>test_project</TargetName>
     <TargetExt>.dll</TargetExt>
@@ -76,9 +76,12 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>PFF.lib;ImGui.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>..\..\PFF\bin\Debug-windows-x86_64\PFF;..\..\PFF\bin\Debug-windows-x86_64\vendor\imgui;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <ImportLibrary>bin\test_project\test_project.lib</ImportLibrary>
+      <ImportLibrary>bin\test_project_build_DLL\test_project.lib</ImportLibrary>
       <ProgramDatabaseFile>$(OutDir)$(TargetName)-$([System.DateTime]::Now.ToString("HH_mm_ss_fff")).pdb</ProgramDatabaseFile>
     </Link>
+    <PreBuildEvent>
+      <Command>cd C:/CustomGameEngine/PFF/bin/Debug-windows-x86_64/PFF &amp;&amp; C:/CustomGameEngine/PFF/bin/Debug-windows-x86_64/PFF_helper/PFF_helper.exe 0 0 C:/CustomGameEngine/PFF_projects/test_project</Command>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -105,9 +108,12 @@
       <OptimizeReferences>true</OptimizeReferences>
       <AdditionalDependencies>PFF.lib;ImGui.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>..\..\PFF\bin\Debug-windows-x86_64\PFF;..\..\PFF\bin\Debug-windows-x86_64\vendor\imgui;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <ImportLibrary>bin\test_project\test_project.lib</ImportLibrary>
+      <ImportLibrary>bin\test_project_build_DLL\test_project.lib</ImportLibrary>
       <ProgramDatabaseFile>$(OutDir)$(TargetName)-$([System.DateTime]::Now.ToString("HH_mm_ss_fff")).pdb</ProgramDatabaseFile>
     </Link>
+    <PreBuildEvent>
+      <Command>cd C:/CustomGameEngine/PFF/bin/Debug-windows-x86_64/PFF &amp;&amp; C:/CustomGameEngine/PFF/bin/Debug-windows-x86_64/PFF_helper/PFF_helper.exe 0 0 C:/CustomGameEngine/PFF_projects/test_project</Command>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="generated\init.h" />

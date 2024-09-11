@@ -31,8 +31,8 @@ namespace PFF::reflect_simple_terrain_script_h {
 
 	void init() {
 
-		if (initialized)
-			return;
+		//if (initialized)
+		//	return;
 
 		initialized = true;
 		auto simple_terrain_script_factory = entt::meta<test_project::simple_terrain_script>()
@@ -41,7 +41,7 @@ namespace PFF::reflect_simple_terrain_script_h {
 
 	}
 
-	void display_properties(test_project::simple_terrain_script* script) {
+	bool display_properties(test_project::simple_terrain_script* script) {
 
 		// class specifiers []
 		if (UI::begin_collapsing_header_section("data")) {
@@ -51,13 +51,16 @@ namespace PFF::reflect_simple_terrain_script_h {
 		}
 		UI::end_collapsing_header_section();
 
+		return false;
 	}
 
-	// test_project::simple_terrain_script
-	void serialize_script(test_project::simple_terrain_script& component, const std::filesystem::path filepath, serializer::option option) { 
+	void serialize_script(test_project::simple_terrain_script* script, serializer::yaml& serializer) {
 
-		serializer::yaml(filepath, "test_project::simple_terrain_script", option)
-			.entry(KEY_VALUE(component.height_scale));
+		// specifiers []
+		serializer.sub_section("data", [&](serializer::yaml& data_section) {
+
+			data_section.entry(KEY_VALUE(script->height_scale));
+		});
 	}
 
 	void delete_scripts(entt::registry& registry) {
