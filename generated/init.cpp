@@ -24,12 +24,12 @@ extern "C" namespace PFF::init {
 
 		registry->storage<test_project::simple_terrain_script>();
 		registry->storage<test_project::tree_generator>();
-		registry->storage<PFF::DefaultScript>();
+		registry->storage<mesh_ops::mesh_ops>();
 
 		ImGui::SetCurrentContext(application::get().get_imgui_layer()->get_context());
 		reflect_simple_terrain_script_h::init();
 		reflect_tree_generator_h::init();
-		reflect_test_script_h::init();
+		reflect_mesh_ops_test_h::init();
 
 		LOG(Info, "PROJECT - successfully initalized scripts");
 	}
@@ -40,7 +40,7 @@ extern "C" namespace PFF::init {
 
 		PFF_ADD_COMPONENT_GENERATED_MACRO(simple_terrain_script_h);
 		PFF_ADD_COMPONENT_GENERATED_MACRO(tree_generator_h);
-		PFF_ADD_COMPONENT_GENERATED_MACRO(test_script_h);
+		PFF_ADD_COMPONENT_GENERATED_MACRO(mesh_ops_test_h);
 	}
 
 	void display_properties(std::string class_name, entity_script* script) {
@@ -52,14 +52,14 @@ extern "C" namespace PFF::init {
 
 		PFF_DISPLAY_PROPERTIE_GENERATED_MACRO(simple_terrain_script_h, test_project::simple_terrain_script);
 		PFF_DISPLAY_PROPERTIE_GENERATED_MACRO(tree_generator_h, test_project::tree_generator);
-		PFF_DISPLAY_PROPERTIE_GENERATED_MACRO(test_script_h, PFF::DefaultScript);
+		PFF_DISPLAY_PROPERTIE_GENERATED_MACRO(mesh_ops_test_h, mesh_ops::mesh_ops);
 	}
 
 	void serialize_script(std::string class_name, entity_script* script, serializer::yaml& serializer) {
 
 		PFF_SERIALIZE_SCRIPT_GENERATED_MACRO(simple_terrain_script_h, test_project::simple_terrain_script);
 		PFF_SERIALIZE_SCRIPT_GENERATED_MACRO(tree_generator_h, test_project::tree_generator);
-		PFF_SERIALIZE_SCRIPT_GENERATED_MACRO(test_script_h, PFF::DefaultScript);
+		PFF_SERIALIZE_SCRIPT_GENERATED_MACRO(mesh_ops_test_h, mesh_ops::mesh_ops);
 	}
 
 }

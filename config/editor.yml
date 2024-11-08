@@ -1,7 +1,7 @@
 editor_camera:
-  m_camera_pos: 134.003 209.138 124.647
-  m_camera_direction: 0.354404 -0.719802 0
-  m_move_speed: 190.296387
+  m_camera_pos: -50.8555 18.7025 16.0713
+  m_camera_direction: 0.31854 1.29878 0
+  m_move_speed: 49.579605
 windows_to_show:
   show_main_menu_bar: false
   show_options: false
