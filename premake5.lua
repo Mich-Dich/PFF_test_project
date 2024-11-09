@@ -7,6 +7,7 @@ workspace "PFF_project"
 	startproject "test_project"
 
 	project "test_project"
+		location "metadata/project_files"					--Set the location for workspace(solution) files
 		kind "SharedLib"
 		language "C++"
 		cppdialect "C++17"
@@ -21,9 +22,12 @@ workspace "PFF_project"
 
 	files
 	{
-		"**.h",
-		"**.hpp",
-		"**.cpp",
+		"generated/**.h",
+		"generated/**.hpp",
+		"generated/**.cpp",
+		"src/**.h",
+		"src/**.hpp",
+		"src/**.cpp",
 	}
 
 	includedirs

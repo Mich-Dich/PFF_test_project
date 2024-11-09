@@ -9,6 +9,10 @@ SETLOCAL EnableDelayedExpansion
 REM Change to the project directory
 cd /d %~dp0
 
+REM Create metadata and project_files directories
+mkdir metadata 2>nul
+mkdir metadata\project_files 2>nul
+
 echo.
 if "%1" == "compile" (
 
