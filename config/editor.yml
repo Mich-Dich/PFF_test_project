@@ -1,7 +1,7 @@
 editor_camera:
-  m_camera_pos: -50.8555 18.7025 16.0713
-  m_camera_direction: 0.31854 1.29878 0
-  m_move_speed: 49.579605
+  m_camera_pos: 37.4986 32.9482 55.2468
+  m_camera_direction: 0.642816 5.72092 0
+  m_move_speed: 34.065170
 windows_to_show:
   show_main_menu_bar: false
   show_options: false
@@ -19,6 +19,6 @@ world_viewport_windows_to_show:
   show_details: true
   show_world_settings: false
 world_vieport_data:
-  selected_entity: 3710807612142572565
+  selected_entity: 1321375692042337390
 guizmo_data:
   operation: 7

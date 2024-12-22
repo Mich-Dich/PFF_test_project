@@ -1,21 +1,21 @@
 FPS_control:
   m_limit_fps: true
   m_target_fps: 60
-  m_nonefocus_fps: 30
+  m_nonefocus_fps: 20
 renderer_background_effect:
   current_background_effect: 1
   m_background_effects:
-  - name: 
+  - name: grid
     data_0: 0.0000 0.0000 0.0000 0.0000
     data_1: 0.0000 0.0000 0.0000 0.0000
     data_2: 0.0000 0.0000 0.0000 0.0000
     data_3: 0.0000 0.0000 0.0000 0.0000
-  - name: 
+  - name: gradient
     data_0: 0.2400 0.2400 0.2400 1.0000
     data_1: 0.2400 0.2400 0.2400 1.0000
     data_2: 0.0000 0.0000 0.0000 0.0000
     data_3: 0.0000 0.0000 0.0000 0.0000
-  - name: 
+  - name: sky
     data_0: 0.1000 0.2000 0.4000 0.9900
     data_1: 0.0000 0.0000 0.0000 0.0000
     data_2: 0.0000 0.0000 0.0000 0.0000

@@ -2,77 +2,11 @@ map_data:
   file_header:
     version: 1 0 0
     type: 2
-    timestamp: 2024 11 9 6 13 34 45 542
+    timestamp: 2024 12 22 0 22 21 6 692
   entities:
-  - tag: SM_basicmesh_Sphere
-    ID: 4164406557105595165
-    transform_component:
-      translation: -12.6023 0 15.4853
-      rotation: -1.15454 -0.337078 0
-      scale: 0.999999 0.999999 1
-    mesh_component:
-      asset_path: meshes\basicmesh_Sphere.pffasset
-      mobility: 0
-      shoudl_render: true
-    relationship_component:
-      parent_ID: 2476473588138234799
-      children_ID:
-  - tag: SM_basicmesh_Sphere
-    ID: 2476473588138234799
-    transform_component:
-      translation: -11.6675 0 10.2102
-      rotation: 0 -0 0
-      scale: 1 1 1
-    mesh_component:
-      asset_path: meshes\basicmesh_Sphere.pffasset
-      mobility: 0
-      shoudl_render: true
-    relationship_component:
-      parent_ID: 0
-      children_ID:
-      - ID: 4164406557105595165
   - tag: procedural_script_test
     ID: 7072220998543679919
     transform_component:
-      translation: 0 0 0
+      translation: -7.15466 0 -4.50664
       rotation: 0 -0 0
       scale: 0.999999 0.999999 0.999999
-    procedural_mesh_component:
-      script_name: test_project::tree_generator
-      mobility: 0
-      shoudl_render: true
-      data:
-        starting_direction: 0 1 0
-        grow_direction: 0 1 0
-        grow_direction_start_point: 0.500000
-        starting_size: 8.000000
-        random_seed: 40
-      trunk:
-        data:
-          section_default_length: 0.700000
-          section_length_variation: 0.500000
-          direction_variation: 25.000000
-          split_chance: 0.081000
-          starting_direction: 0 1 0
-          grow_direction: 0 1 0
-          direction_change_speed: 0.620000
-        trunk_segment_count: 18
-        trunk_segment_count_variation: 10
-        trunk_repulsion_strength: 1.000000
-        trunk_repulsion_influence: 1.700000
-        trunk_influence_of_repulsion_on_grow_direction: 10.000000
-      branch:
-        data:
-          section_default_length: 2.000000
-          section_length_variation: 0.500000
-          direction_variation: 40.000000
-          split_chance: 0.350000
-          starting_direction: 0 0 0
-          grow_direction: 0 1 0
-          direction_change_speed: 0.920000
-        branch_spawn_chance: 0.150000
-        branch_spawn_height: 0.300000
-        branch_split_chance: 0.500000
-        branch_start_angle_to_trunk: 90
-        branch_segment_count: 3
-        branch_segment_count_variation: 1

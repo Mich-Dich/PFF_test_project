@@ -31,7 +31,6 @@ namespace test_project {
     }
 
 
-
     point* tree_generator::find_point_at_height(point* start, f32 target_height) {
 
         f32 current_height = 0;
@@ -46,7 +45,6 @@ namespace test_project {
         }
         return current;
     }
-
 
 
     void tree_generator::generate_trunk(point* parent, u32 current_segment, f32 split_chance) {
@@ -95,6 +93,7 @@ namespace test_project {
             generate_trunk(split_point, current_segment + 5, split_chance * 0.5f);
         }
     }
+
 
     void tree_generator::generate_branches(point* parent, u32 depth, glm::vec3 prefered_direction, f32 split_chance) {
 

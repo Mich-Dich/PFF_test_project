@@ -1,7 +1,7 @@
 include "C:/CustomGameEngine/PFF/dependencies.lua"
 
-workspace "PFF_project"
-	architecture "x64"
+workspace "test_project"
+architecture "x64"
 	configurations { "Debug", "Release" }
 	flags { "MultiProcessorCompile" }
 	startproject "test_project"
@@ -44,7 +44,7 @@ workspace "PFF_project"
 	symbolspath '$(OutDir)$(TargetName)-$([System.DateTime]::Now.ToString("HH_mm_ss_fff")).pdb'
 	debugcommand("C:/CustomGameEngine/PFF/bin/Debug-windows-x86_64/PFF_editor/PFF_editor.exe")
 	debugdir("C:/CustomGameEngine/PFF/bin/Debug-windows-x86_64/PFF_editor")
-	-- If you need to pass arguments to your game engine, use:								debugargs { "arg1", "arg2" }
+	-- for passing arguments to game engine, use:								debugargs { "arg1", "arg2" }
 
 	libdirs 
 	{
@@ -64,6 +64,21 @@ workspace "PFF_project"
 		"cd C:/CustomGameEngine/PFF/bin/Debug-windows-x86_64/PFF && " ..
 		"C:/CustomGameEngine/PFF/bin/Debug-windows-x86_64/PFF_helper/PFF_helper.exe 0 0 0 C:/CustomGameEngine/PFF_projects/test_project",
     }
+
+	cleancommands{
+		"{RMDIR} %{cfg.buildtarget.directory}",
+		"{RMDIR} %{cfg.objdir}",
+		"{RMDIR} generated",
+		"echo Cleaning completed for %{prj.name}"
+	}
+
+	rebuildcommands{
+		"{RMDIR} %{cfg.buildtarget.directory}",
+		"{RMDIR} %{cfg.objdir}",
+		"premake5 --file=%{wks.location}premake5.lua vs2019",
+		"msbuild /t:rebuild /p:configuration=%{cfg.buildcfg} %{wks.location}%{prj.name}.vcxproj",
+		"echo Rebuild completed for %{prj.name}"
+	}
 
 	filter "system:windows"
 		defines "PFF_PLATFORM_WINDOWS"
