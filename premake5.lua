@@ -10,8 +10,8 @@ architecture "x64"
 		location "metadata/project_files"					--Set the location for workspace(solution) files
 		kind "SharedLib"
 		language "C++"
-		cppdialect "C++17"
-		staticruntime "off"
+		cppdialect "C++20"
+		staticruntime "on"
 
 	targetdir("bin/%{prj.name}_build_DLL")
 	objdir("bin-int/%{prj.name}")
@@ -43,19 +43,23 @@ architecture "x64"
 
 	symbolspath '$(OutDir)$(TargetName)-$([System.DateTime]::Now.ToString("HH_mm_ss_fff")).pdb'
 	debugcommand("C:/CustomGameEngine/PFF/bin/Debug-windows-x86_64/PFF_editor/PFF_editor.exe")
+	debugargs {"C:/CustomGameEngine/PFF_projects/test_project/test_project.pffproj"}
+	
 	debugdir("C:/CustomGameEngine/PFF/bin/Debug-windows-x86_64/PFF_editor")
 	-- for passing arguments to game engine, use:								debugargs { "arg1", "arg2" }
 
-	libdirs 
+	libdirs
 	{
 		"C:/CustomGameEngine/PFF/bin/Debug-windows-x86_64/PFF",
 		"C:/CustomGameEngine/PFF/bin/Debug-windows-x86_64/vendor/imgui",
+		"C:/CustomGameEngine/PFF/bin/Debug-windows-x86_64/vendor/glfw",
 	}
 
 	links
 	{
 		"PFF",
-		"ImGui"
+		"ImGui",
+		"glfw"
 	}
 
 	defines "PFF_PROJECT"

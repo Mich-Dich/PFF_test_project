@@ -2,7 +2,7 @@ map_data:
   file_header:
     version: 1 0 0
     type: 2
-    timestamp: 2024 12 22 0 22 21 6 692
+    timestamp: 2024 12 26 4 14 8 27 403
   entities:
   - tag: procedural_script_test
     ID: 7072220998543679919
@@ -10,3 +10,88 @@ map_data:
       translation: -7.15466 0 -4.50664
       rotation: 0 -0 0
       scale: 0.999999 0.999999 0.999999
+  - tag: SM_basicmesh_Cube
+    ID: 15586768356484171669
+    transform_component:
+      translation: 0 0 0
+      rotation: 0 -0 0
+      scale: 1 1 1
+    mesh_component:
+      asset_path: meshes\basicmesh_Cube.pffasset
+      mobility: 0
+      shoudl_render: false
+    relationship_component:
+      parent_ID: 0
+      children_ID:
+      - ID: 4131027504114621951
+      - ID: 8053733212420944902
+  - tag: SM_basicmesh_Sphere
+    ID: 4587428308347913721
+    transform_component:
+      translation: 0 0 0
+      rotation: 0 -0 0
+      scale: 1 1 1
+    mesh_component:
+      asset_path: meshes\basicmesh_Sphere.pffasset
+      mobility: 0
+      shoudl_render: false
+  - tag: SM_basicmesh_Sphere
+    ID: 4131027504114621951
+    transform_component:
+      translation: 0 0 0
+      rotation: 0 -0 0
+      scale: 1 1 1
+    mesh_component:
+      asset_path: meshes\basicmesh_Sphere.pffasset
+      mobility: 0
+      shoudl_render: true
+    relationship_component:
+      parent_ID: 15586768356484171669
+      children_ID:
+  - tag: SM_basicmesh_Sphere
+    ID: 8053733212420944902
+    transform_component:
+      translation: 0 0 0
+      rotation: 0 -0 0
+      scale: 1 1 1
+    mesh_component:
+      asset_path: meshes\basicmesh_Sphere.pffasset
+      mobility: 0
+      shoudl_render: true
+    relationship_component:
+      parent_ID: 15586768356484171669
+      children_ID:
+      - ID: 4093298649240617138
+  - tag: SM_basicmesh_Sphere
+    ID: 4093298649240617138
+    transform_component:
+      translation: 0 0 0
+      rotation: 0 -0 0
+      scale: 1 1 1
+    mesh_component:
+      asset_path: meshes\basicmesh_Sphere.pffasset
+      mobility: 0
+      shoudl_render: true
+    relationship_component:
+      parent_ID: 8053733212420944902
+      children_ID:
+  - tag: SM_grass_002_Plane
+    ID: 15152900555614523258
+    transform_component:
+      translation: 0 0 0
+      rotation: 0 -0 0
+      scale: 1 1 1
+    mesh_component:
+      asset_path: meshes\grass_002_Plane.pffasset
+      mobility: 0
+      shoudl_render: false
+  - tag: SM_basicmesh_Suzanne
+    ID: 5246375652600607918
+    transform_component:
+      translation: 0 0 0
+      rotation: 0 -0 0
+      scale: 1 1 1
+    mesh_component:
+      asset_path: meshes\basicmesh_Suzanne.pffasset
+      mobility: 0
+      shoudl_render: true

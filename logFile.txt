@@ -1,0 +1,2 @@
+[[92m13:54:32:563[97m[40m] [[92mINFO  - C:\CustomGameEngine\PFF_projects\test_project\generated\init.cpp - PFF::init::init_scripts:23[97m[40m] PROJECT - initializing scripts
+[[92m14:02:36:555[97m[40m] [[92mINFO  - C:\CustomGameEngine\PFF_projects\test_project\generated\init.cpp - PFF::init::init_scripts:23[97m[40m] PROJECT - initializing scripts
