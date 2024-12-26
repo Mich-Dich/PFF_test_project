@@ -13,6 +13,14 @@
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
 
+# PFF related files
+bin/
+bin-int/
+generated/
+metadata/
+*.sln
+
+
 # Build results
 [Dd]ebug/
 [Dd]ebugPublic/
