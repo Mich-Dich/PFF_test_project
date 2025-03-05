@@ -25,7 +25,7 @@ if "%1" == "compile" (
 	msbuild PFF_project.sln /p:Configuration=Debug /p:Platform=x64
 ) else (
 	echo =================================== Building PFF Project Solution ===========================
-	call C:/CustomGameEngine/PFF/bin/Debug-windows-x86_64/PFF_editor/../vendor/premake/premake5.exe vs2022
+	call /home/mich/workspace/PFF/bin/Debug-linux-x86_64/PFF_editor/../vendor/premake/premake5.exe vs2022
 )
 echo.
 

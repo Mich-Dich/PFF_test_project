@@ -1,5 +1,5 @@
 performance_display:
   m_show_FPS_window: true
-  m_show_renderer_metrik: true
+  m_show_renderer_metrik: false
   renderer_metrik_window_location: 4
   FPS_window_location: 2

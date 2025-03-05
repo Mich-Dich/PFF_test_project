@@ -25,7 +25,7 @@ namespace mesh_ops {
 		//LOG(Trace, "index: " << index);
 
 		recalculate_bounds();
-		show_debug_bounds(m_mesh_asset.bounds);
+		show_debug_bounds(m_mesh_asset.bounds_data);
 		apply_mesh();
 	}
 
