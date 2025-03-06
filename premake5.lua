@@ -1,4 +1,10 @@
-include "C:\CustomGameEngine\PFF/dependencies.lua"
+
+PFF_source_location = "/home/mich/workspace/PFF/"
+
+include (PFF_source_location .. "/dependencies.lua")
+include (PFF_source_location .. "/premake5.lua")
+
+PFF_engine_location = PFF_source_location .. "/bin/" .. outputs
 
 workspace "test_project"
 architecture "x64"
@@ -10,7 +16,7 @@ architecture "x64"
 		location "metadata/project_files"					--Set the location for workspace(solution) files
 		kind "SharedLib"
 		language "C++"
-		cppdialect "C++17"
+		cppdialect "C++20"
 		staticruntime "off"
 
 	targetdir("bin/%{prj.name}_build_DLL")
@@ -30,40 +36,36 @@ architecture "x64"
 		"src/**.cpp",
 	}
 
-	includedirs
-	{
-		"content",
-		"src",
-		"C:\CustomGameEngine\PFF/PFF/src",
-		"C:\CustomGameEngine\PFF/%{vendor_path.entt}",
-		"C:\CustomGameEngine\PFF/%{vendor_path.glm}",
-		"C:\CustomGameEngine\PFF/%{vendor_path.ImGui}",
-		"C:/VulkanSDK/1.3.250.1/Include",
-	}
-
-	symbolspath '$(OutDir)$(TargetName)-$([System.DateTime]::Now.ToString("HH_mm_ss_fff")).pdb'
-	debugcommand("C:\CustomGameEngine\PFF\bin\Debug-windows-x86_64/PFF_editor/PFF_editor.exe")
-	debugdir("C:\CustomGameEngine\PFF\bin\Debug-windows-x86_64/PFF_editor")
-	-- for passing arguments to game engine, use:								debugargs { "arg1", "arg2" }
-
-	libdirs 
-	{
-		"C:\CustomGameEngine\PFF\bin\Debug-windows-x86_64/PFF",
-		"C:\CustomGameEngine\PFF\bin\Debug-windows-x86_64/vendor/imgui",
-	}
-
-	links
-	{
-		"PFF",
-		"ImGui"
-	}
-
-	defines "PFF_PROJECT"
-
-    prebuildcommands {
-		"cd C:\CustomGameEngine\PFF\bin\Debug-windows-x86_64/PFF && " ..
-		"C:\CustomGameEngine\PFF\bin\Debug-windows-x86_64/PFF_helper/PFF_helper.exe 0 0 0 /home/mich/workspace/PFF_test_projects",
+    includedirs
+    {
+        "content",
+        "src",
+        PFF_source_location .. "/PFF/src",
+        PFF_source_location .. "/%{vendor_path.entt}",
+        PFF_source_location .. "/%{vendor_path.glm}",
+        PFF_source_location .. "/%{vendor_path.ImGui}",
+		"%{IncludeDir.Vulkan}",
+		"%{IncludeDir.VulkanUtils}",
     }
+
+    symbolspath '$(OutDir)$(TargetName)-$([System.DateTime]::Now.ToString("HH_mm_ss_fff")).pdb'
+    debugcommand(PFF_engine_location .. "/PFF_editor/PFF_editor.exe")
+    debugdir(PFF_engine_location .. "/PFF_editor")
+    -- For passing arguments to game engine, use: debugargs { "arg1", "arg2" }
+
+    libdirs 
+    {
+		PFF_engine_location.. "/PFF",
+        PFF_engine_location .. "/vendor/imgui",
+    }
+
+    links
+    {
+        "PFF",
+        "ImGui"
+    }
+
+    defines "PFF_PROJECT"
 
 	cleancommands{
 		"{RMDIR} %{cfg.buildtarget.directory}",
@@ -72,13 +74,38 @@ architecture "x64"
 		"echo Cleaning completed for %{prj.name}"
 	}
 
-	rebuildcommands{
-		"{RMDIR} %{cfg.buildtarget.directory}",
-		"{RMDIR} %{cfg.objdir}",
-		"premake5 --file=%{wks.location}premake5.lua vs2019",
-		"msbuild /t:rebuild /p:configuration=%{cfg.buildcfg} %{wks.location}%{prj.name}.vcxproj",
-		"echo Rebuild completed for %{prj.name}"
-	}
+	filter { "system:windows" }
+		defines "PFF_PLATFORM_WINDOWS"
+		
+		prebuildcommands {
+			"cd " .. PFF_engine_location .. "/PFF",
+			PFF_engine_location .. "/PFF_helper/PFF_helper.exe 0 0 0 /home/mich/workspace/PFF_test_projects",
+		}
+
+		rebuildcommands{
+			"{RMDIR} %{cfg.buildtarget.directory}",
+			"{RMDIR} %{cfg.objdir}",
+			"premake5 --file=%{wks.location}premake5.lua vs2019",
+			"msbuild /t:rebuild /p:configuration=%{cfg.buildcfg} %{wks.location}%{prj.name}.vcxproj",
+			"echo Rebuild completed for %{prj.name}"
+		}
+
+	filter { "system:linux" }
+		defines "PFF_PLATFORM_LINUX"
+
+		prebuildcommands {
+			"cd " .. PFF_engine_location .. "/PFF",
+			PFF_engine_location .. "/PFF_helper/PFF_helper 0 0 0 /home/mich/workspace/PFF_test_projects",
+			"cd -"
+		}
+		
+		rebuildcommands{
+			"{RMDIR} %{cfg.buildtarget.directory}",
+			"{RMDIR} %{cfg.objdir}",
+			PFF_engine_location .. "/vendor/premake5/premake5 gmake2",
+			"make -j",
+			"echo Rebuild completed for %{prj.name}"
+		}
 
 	filter "system:windows"
 		defines "PFF_PLATFORM_WINDOWS"

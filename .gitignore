@@ -20,6 +20,10 @@ generated/
 metadata/
 *.sln
 
+Makefile
+*.log
+
+
 
 # Build results
 [Dd]ebug/
