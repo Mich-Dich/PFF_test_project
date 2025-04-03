@@ -16,7 +16,7 @@ public:
 
 };
 
-namespace PFF {
+namespace PFF {		// TODO: move to generated
 
 	application* create_application() { return new test_project(); }
 }

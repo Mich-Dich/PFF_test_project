@@ -1,4 +1,4 @@
-include "C:/CustomGameEngine/PFF/dependencies.lua"
+include "C:/dev/PFF/bin/Debug-windows-x86_64/dependencies.lua"
 
 workspace "test_project"
 architecture "x64"
@@ -34,39 +34,37 @@ architecture "x64"
 	{
 		"content",
 		"src",
-		"C:/CustomGameEngine/PFF/PFF/src",
-		"C:/CustomGameEngine/PFF/%{vendor_path.entt}",
-		"C:/CustomGameEngine/PFF/%{vendor_path.glm}",
-		"C:/CustomGameEngine/PFF/%{vendor_path.ImGui}",
-		"C:/VulkanSDK/1.3.250.1/Include",
+		"C:/dev/PFF/bin/Debug-windows-x86_64/PFF/src",
+		"C:/dev/PFF/bin/Debug-windows-x86_64/vendor/entt",
+		"C:/dev/PFF/bin/Debug-windows-x86_64/vendor/glm",
+		"C:/dev/PFF/bin/Debug-windows-x86_64/vendor/imgui",
+		"%{IncludeDir.Vulkan}",
 	}
 
 	symbolspath '$(OutDir)$(TargetName)-$([System.DateTime]::Now.ToString("HH_mm_ss_fff")).pdb'
-	debugcommand("C:/CustomGameEngine/PFF/bin/Debug-windows-x86_64/PFF_editor/PFF_editor.exe")
-	debugargs {"C:/CustomGameEngine/PFF_projects/test_project/test_project.pffproj"}
-	
-	debugdir("C:/CustomGameEngine/PFF/bin/Debug-windows-x86_64/PFF_editor")
+	debugcommand("C:/dev/PFF/bin/Debug-windows-x86_64/PFF_editor/PFF_editor.exe")
+	debugdir("C:/dev/PFF/bin/Debug-windows-x86_64/PFF_editor")
 	-- for passing arguments to game engine, use:								debugargs { "arg1", "arg2" }
 
-	libdirs
+	libdirs 
 	{
-		"C:/CustomGameEngine/PFF/bin/Debug-windows-x86_64/PFF",
-		"C:/CustomGameEngine/PFF/bin/Debug-windows-x86_64/vendor/imgui",
-		"C:/CustomGameEngine/PFF/bin/Debug-windows-x86_64/vendor/glfw",
+		"C:/dev/PFF/bin/Debug-windows-x86_64/PFF",
+		"C:/dev/PFF/bin/Debug-windows-x86_64/vendor/imgui",
+		"C:/dev/PFF/bin/Debug-windows-x86_64/vendor/glfw",
 	}
 
 	links
 	{
 		"PFF",
 		"ImGui",
-		"glfw"
+		"GLFW"
 	}
 
 	defines "PFF_PROJECT"
 
     prebuildcommands {
-		"cd C:/CustomGameEngine/PFF/bin/Debug-windows-x86_64/PFF && " ..
-		"C:/CustomGameEngine/PFF/bin/Debug-windows-x86_64/PFF_helper/PFF_helper.exe 0 0 0 C:/CustomGameEngine/PFF_projects/test_project",
+		"cd C:/dev/PFF/bin/Debug-windows-x86_64/PFF && " ..
+		"C:/dev/PFF/bin/Debug-windows-x86_64/PFF_helper/PFF_helper.exe 0 0 0 C:/dev/PFF_test_project",
     }
 
 	cleancommands{

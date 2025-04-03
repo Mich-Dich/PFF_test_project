@@ -1,13 +1,13 @@
 editor_camera:
-  m_camera_pos: 37.4986 32.9482 55.2468
-  m_camera_direction: 0.642816 5.72092 0
-  m_move_speed: 34.065170
+  m_camera_pos: 50.3652 43.2641 61.2055
+  m_camera_direction: 0.678448 5.68064 0
+  m_move_speed: 54.862297
 windows_to_show:
   show_main_menu_bar: false
   show_options: false
   show_graphics_engine_settings: false
   show_editor_settings: false
-  show_general_settings: false
+  show_general_settings: true
   show_engine_wiki: false
   show_style_editor: false
   show_demo_window: false
@@ -17,8 +17,9 @@ world_viewport_windows_to_show:
   show_general_debugger: false
   show_outliner: true
   show_details: true
+  show_log_display: false
   show_world_settings: false
 world_vieport_data:
-  selected_entity: 1321375692042337390
+  selected_entity: 13513703235496375865
 guizmo_data:
   operation: 7

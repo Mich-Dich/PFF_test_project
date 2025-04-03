@@ -1,9 +1,16 @@
-PFF_asset_file:
-  version: 1 0 0
-  type: 1
-  timestamp: 2024 8 14 3 15 53 54 159
-editor_camera:
-  m_camera_pos: 0 0 0
-  m_camera_direction: 0 0 0
-  m_move_speed: 50.000000
-  
+map_data:
+  file_header:
+    file_version: 1 0 0
+    type: 1
+    timestamp: 2025 3 28 5 18 31 30 925
+  entities:
+  - tag: SM_canon_turret_CanonTurret_Lowpoly
+    ID: 7407180196846017720
+    transform_component:
+      translation: 0 0 0
+      rotation: 1.5052 -0.422181 0
+      scale: 0.999999 1 1
+    mesh_component:
+      asset_path: meshes\canon_turret_CanonTurret_Lowpoly.pffasset
+      mobility_data: 0
+      shoudl_render: true
