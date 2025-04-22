@@ -2,42 +2,27 @@ map_data:
   file_header:
     file_version: 1 0 0
     type: 1
-    timestamp: 2025 4 3 4 21 3 10 576
+    timestamp: 2025 4 22 2 0 2 4 324
   entities:
-  - tag: SM_basicmesh_Cube
-    ID: 13706135280396377372
+  - name: SM_Cylinder.003
+    ID: 6196167870948812970
     transform_component:
-      translation: 0 0 0
+      translation: 0.175546 0 -1.24316
       rotation: 0 -0 0
       scale: 1 1 1
     mesh_component:
-      asset_path: meshes\basicmesh_Cube.pffasset
+      asset_path: meshes/barrel/Cylinder.003.pffasset
       mobility_data: 0
       shoudl_render: true
-  - tag: SM_basicmesh_Cube
-    ID: 13513703235496375865
+      material_inst_path: meshes/barrel/MI_barrel.pffasset
+  - name: SM_Cylinder.003
+    ID: 4560148547290374497
     transform_component:
-      translation: 23.4657 -3.99712e-06 -9.18588
+      translation: 0.962074 0 -1.65421
       rotation: 0 -0 0
       scale: 1 1 1
     mesh_component:
-      asset_path: meshes\basicmesh_Cube.pffasset
+      asset_path: meshes/barrel/Cylinder.003.pffasset
       mobility_data: 0
       shoudl_render: true
-    relationship_component:
-      parent_ID: 0
-      children_ID:
-      - ID: 7476265922210508937
-  - tag: SM_basicmesh_Cube
-    ID: 7476265922210508937
-    transform_component:
-      translation: 16.8345 1.98556e-08 2.70272
-      rotation: 0 -0 0
-      scale: 1 1 1
-    mesh_component:
-      asset_path: meshes\basicmesh_Cube.pffasset
-      mobility_data: 0
-      shoudl_render: true
-    relationship_component:
-      parent_ID: 13513703235496375865
-      children_ID:
+      material_inst_path: meshes/new_instance.pffasset

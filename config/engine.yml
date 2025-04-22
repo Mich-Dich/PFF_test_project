@@ -3,7 +3,7 @@ FPS_control:
   m_target_fps: 60
   m_nonefocus_fps: 20
 renderer_background_effect:
-  current_background_effect: 1
+  current_background_effect: 3
   m_background_effects:
   - name: grid
     data_0: 0.0000 0.0000 0.0000 0.0000

@@ -1,4 +1,4 @@
-include "C:/dev/PFF/bin/Debug-windows-x86_64/dependencies.lua"
+include "/home/mich/workspace/PFF/bin/Debug-linux-x86_64/dependencies.lua"
 
 workspace "test_project"
 architecture "x64"
@@ -34,23 +34,23 @@ architecture "x64"
 	{
 		"content",
 		"src",
-		"C:/dev/PFF/bin/Debug-windows-x86_64/PFF/src",
-		"C:/dev/PFF/bin/Debug-windows-x86_64/vendor/entt",
-		"C:/dev/PFF/bin/Debug-windows-x86_64/vendor/glm",
-		"C:/dev/PFF/bin/Debug-windows-x86_64/vendor/imgui",
+		"/home/mich/workspace/PFF/bin/Debug-linux-x86_64/PFF/src",
+		"/home/mich/workspace/PFF/bin/Debug-linux-x86_64/vendor/entt",
+		"/home/mich/workspace/PFF/bin/Debug-linux-x86_64/vendor/glm",
+		"/home/mich/workspace/PFF/bin/Debug-linux-x86_64/vendor/imgui",
 		"%{IncludeDir.Vulkan}",
 	}
 
 	symbolspath '$(OutDir)$(TargetName)-$([System.DateTime]::Now.ToString("HH_mm_ss_fff")).pdb'
-	debugcommand("C:/dev/PFF/bin/Debug-windows-x86_64/PFF_editor/PFF_editor.exe")
-	debugdir("C:/dev/PFF/bin/Debug-windows-x86_64/PFF_editor")
+	debugcommand("/home/mich/workspace/PFF/bin/Debug-linux-x86_64/PFF_editor/PFF_editor.exe")
+	debugdir("/home/mich/workspace/PFF/bin/Debug-linux-x86_64/PFF_editor")
 	-- for passing arguments to game engine, use:								debugargs { "arg1", "arg2" }
 
 	libdirs 
 	{
-		"C:/dev/PFF/bin/Debug-windows-x86_64/PFF",
-		"C:/dev/PFF/bin/Debug-windows-x86_64/vendor/imgui",
-		"C:/dev/PFF/bin/Debug-windows-x86_64/vendor/glfw",
+		"/home/mich/workspace/PFF/bin/Debug-linux-x86_64/PFF",
+		"/home/mich/workspace/PFF/bin/Debug-linux-x86_64/vendor/imgui",
+		"/home/mich/workspace/PFF/bin/Debug-linux-x86_64/vendor/glfw",
 	}
 
 	links
@@ -63,8 +63,8 @@ architecture "x64"
 	defines "PFF_PROJECT"
 
     prebuildcommands {
-		"cd C:/dev/PFF/bin/Debug-windows-x86_64/PFF && " ..
-		"C:/dev/PFF/bin/Debug-windows-x86_64/PFF_helper/PFF_helper.exe 0 0 0 C:/dev/PFF_test_project",
+		"cd /home/mich/workspace/PFF/bin/Debug-linux-x86_64/PFF && " ..
+		"/home/mich/workspace/PFF/bin/Debug-linux-x86_64/PFF_helper/PFF_helper.exe 0 0 0 /home/mich/workspace/PFF_test_projects",
     }
 
 	cleancommands{
